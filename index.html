@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student-Led Rural Development</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Welcome Screen -->
+    <div class="container" id="welcomeScreen">
+        <h2>Welcome!</h2>
+        <button onclick="showRegister()">Register</button>
+        <button onclick="showUserTypeSelection()">Already have an account?</button>
+    </div>
+
+    <!-- Ask Student or Learner Before Login -->
+    <div class="container" id="userTypeSelection" style="display: none;">
+        <h2>Are you a:</h2>
+        <button onclick="showLogin('student')">Student</button>
+        <button onclick="showLogin('learner')">Learner</button>
+    </div>
+
+    <!-- Login Form -->
+    <div class="container" id="loginForm" style="display: none;">
+        <h2>Login</h2>
+        <input type="email" id="loginEmail" placeholder="Email">
+        <input type="password" id="loginPassword" placeholder="Password">
+        <button onclick="login()">Login</button>
+    </div>
+
+    <!-- Registration Form -->
+    <div class="container" id="registration" style="display: none;">
+        <h2>Register</h2>
+        <label for="userType">I am a:</label>
+        <select id="userType">
+            <option value="" disabled selected>Select an option</option>
+            <option value="student">Student</option>
+            <option value="learner">Learner</option>
+        </select>
+        <input type="email" id="regEmail" placeholder="Email">
+        <input type="password" id="regPassword" placeholder="Password">
+        <button onclick="nextStep()">Continue</button>
+    </div>
+
+    <!-- Team Formation -->
+    <div class="container" id="teamSection" style="display: none;">
+        <h2>Team Formation</h2>
+        <button onclick="createTeam()">Create a Team</button>
+        <button onclick="joinTeam()">Join a Team</button>
+        <button class="signout" onclick="signOut()">Sign Out</button>
+    </div>
+
+    <!-- Create or Join Team -->
+    <div class="container" id="teamDetails" style="display: none;">
+        <h2 id="teamTitle"></h2>
+        <input type="text" id="teamName" placeholder="Enter Team Name" style="display: none;">
+        <input type="password" id="teamPassword" placeholder="Enter Team Password">
+        <button onclick="proceedToDashboard()">Proceed</button>
+        <button class="signout" onclick="signOut()">Sign Out</button>
+    </div>
+
+    <!-- Dashboard for Students -->
+    <div class="container" id="dashboard" style="display: none;">
+        <h2>Data Upload & Progress Tracking</h2>
+        <input type="file" id="dataUpload">
+        <button>Upload Data</button>
+        <h3 style="margin-top: 20px;">Progress Tracking</h3>
+        <p style="color: lightgray; font-style: italic; margin-top: 10px;">Coming Soon</p>
+        <button class="signout" onclick="signOut()">Sign Out</button>
+    </div>
+
+    <!-- Learning Module for Learners -->
+    <div class="container" id="learningModule" style="display: none;">
+        <h2>Learning Module</h2>
+        <ul>
+            <li><a href="#" onclick="showComingSoon()">Digital Skills</a></li>
+            <li><a href="#" onclick="showComingSoon()">Entrepreneurship</a></li>
+            <li><a href="#" onclick="showComingSoon()">Sustainable Farming</a></li>
+        </ul>
+        <h3>Feedback</h3>
+        <textarea placeholder="Your feedback here..."></textarea>
+        <button>Submit Feedback</button>
+        <button class="signout" onclick="signOut()">Sign Out</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
